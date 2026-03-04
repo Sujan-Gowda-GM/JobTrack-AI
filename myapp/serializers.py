@@ -27,6 +27,7 @@ class JobSerializer(serializers.ModelSerializer):
             "company_name",
             "job_role",
             "status",
+            "ats_score",
             "applied_date",
             "created_at",
             "updated_at",
