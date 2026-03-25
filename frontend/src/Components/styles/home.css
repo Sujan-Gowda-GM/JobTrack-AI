@@ -1,0 +1,294 @@
+/* Studio Minimalist Variables */
+:root {
+  --bg-color: #fafafa;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --accent: #000000;      /* Pure Black accents */
+  --border: #e5e5e5;
+  --card-bg: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  letter-spacing: -0.02em; /* Tighter professional spacing */
+  margin: 0;
+  
+}
+
+/* Main Container - The "Gallery" Look */
+.input-section, .display-section {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+/* Inputs - Borderless & Clean */
+textarea {
+  width: 100%;
+  height: 200px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0px; /* Zero radius for a sharp look */
+  padding: 20px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Submit Button - The "Statement" Button */
+.submit-button button {
+  background: var(--accent);
+  color: white;
+  width: 100%;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.submit-button button:hover {
+  opacity: 0.8;
+}
+
+/* ATS Score - Minimalist Bold */
+.ats_score {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.ats_score strong {
+  font-size: 6rem; /* Huge impact score */
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.ats_score::after {
+  content: "MATCH QUALITY";
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+}
+
+/* Keyword Tags - The "Quiet" Look */
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+}
+
+.keyword-tag {
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  color: var(--text-main);
+}
+
+/* Feedback Points - Clean Typography */
+.feedback-points li {
+  list-style: none;
+  border-left: 1px solid var(--accent);
+  padding-left: 20px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* Step 2 Form Details */
+.job-details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.job-details-form input {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+  font-size: 1.2rem;
+  border-radius: 0;
+}
+
+.job-details-form input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* Loading - Silent & Subtle */
+.loading-state {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- Step 2 Form Details (Grid Layout) --- */
+.job-details-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for a cleaner look */
+  gap: 30px;
+  margin-top: 80px;
+  padding-bottom: 60px;
+}
+
+.job-details-form h3 {
+  grid-column: span 2;
+  margin-bottom: 10px;
+}
+
+/* Base style for both Input and Select */
+.job-details-form input, 
+.job-details-form select {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  border-radius: 0;
+  color: var(--text-main);
+  width: 100%;
+  transition: border-bottom-color 0.3s ease;
+}
+
+/* Custom Select Styling */
+.job-details-form select {
+  appearance: none; /* Removes default arrow */
+  cursor: pointer;
+  /* Adds a minimalist custom arrow icon */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.job-details-form input:focus, 
+.job-details-form select:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* --- Universal Button Design --- */
+.choice button,
+.job-details-form button {
+  background: var(--accent);
+  color: white;
+  padding: 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Special spanning for the final save button */
+.job-details-form button {
+  grid-column: span 2;
+  margin-top: 20px;
+}
+
+/* Hover effects */
+.choice button:hover,
+.job-details-form button:hover {
+  background: white;
+  color: var(--accent);
+}
+
+/* Secondary choice button (No, Try Another) */
+.choice button:last-of-type {
+  background: white;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.choice button:last-of-type:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Horizontal Rule & Choice Section --- */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 60px 0;
+}
+
+.choice {
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px;
+  border: 1px solid var(--border);
+}
+
+.choice p {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+/* Hide the default browser "Choose File" button */
+.file-upload-block input[type="file"] {
+  display: none;
+}
+
+/* Style the Label to look like a Premium Button */
+.custom-file-upload {
+  display: block;
+  width: 100%;
+  padding: 40px 20px;
+  border: 1px dashed var(--border); /* Dashed border for "Upload" feel */
+  background: var(--card-bg);
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.custom-file-upload:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: #fdfdfd;
+}
+
+/* Style for when a file is actually selected */
+.custom-file-upload:active, .custom-file-upload:focus {
+  border-style: solid;
+}
+
+.empty-state{
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  letter-spacing: -0.02em; /* Tighter professional spacing */
+  margin: 0;
+}

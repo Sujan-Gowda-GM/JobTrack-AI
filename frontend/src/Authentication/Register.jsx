@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { registerUser } from "../API/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./styles/register.css"
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -68,7 +70,18 @@ const Register = () => {
         {/* Added onClick here */}
         <button onClick={register}>Register</button>
       </div>
+
+      <div className="login-form">
+         <Link to={'/login'}>
+
+         <div>
+            Already has an account?..Sign in
+          </div>
+         </Link > 
+      </div>
     </div>
+
+    
   );
 };
 

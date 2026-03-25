@@ -12,6 +12,7 @@ def pdf_extract(file):
             text += content + "\n"
     return text
 
+
 def gemini_feedback(resume_text, job_description):
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     

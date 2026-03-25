@@ -1,0 +1,139 @@
+/* Container for the Register Form */
+
+
+body {
+margin: 0;
+  background-color: #fafafa; /* Your default bg-color */
+  background-image: 
+    radial-gradient(#ce4d4d 1px, transparent 1px), 
+    radial-gradient(#641cc2 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  min-height: 100vh;
+}
+
+.register-form {
+  max-width: 400px;
+  margin: 80px auto; /* Slightly less margin than login to accommodate extra fields */
+  padding: 60px 40px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Header Styling */
+.register-form h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  margin-bottom: 50px;
+}
+
+/* Input Group Spacing (Username, Email, Password) */
+.register-form .username, 
+.register-form .email, 
+.register-form .password {
+  margin-bottom: 25px;
+}
+
+/* Editorial-Style Underline Inputs */
+.register-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  border-radius: 0;
+  color: var(--text-main);
+  transition: border-bottom-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.register-form input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* The Primary Register Button */
+.register-button button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  padding: 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+}
+
+.register-button button:hover {
+  background: white;
+  color: var(--accent);
+}
+
+/* Login Link Section (The "Already have an account?" part) */
+.register-form .login-form {
+  margin-top: 35px;
+  /* We reset the login-form styles here so it doesn't try to 
+     draw a box inside the register box */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.register-form .login-form a {
+  text-decoration: none;
+}
+
+.register-form .login-form div {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.register-form .login-form div:hover {
+  color: var(--accent);
+}
+
+/* This targets the div specifically when it's a child of the register form */
+.register-form .login-form {
+  background: transparent; /* Remove the white background */
+  border: none;             /* Remove the border */
+  box-shadow: none;         /* Remove the shadow */
+  margin: 30px 0 0 0;      /* Give it some space from the button */
+  padding: 0;               /* Remove the inner padding */
+  max-width: 100%;          /* Ensure it fits the container */
+  animation: none;          /* Prevent double animations */
+}
+
+/* Style the text inside the link */
+.register-form .login-form div {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for the "Sign in" text */
+.register-form .login-form div:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Entrance Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
