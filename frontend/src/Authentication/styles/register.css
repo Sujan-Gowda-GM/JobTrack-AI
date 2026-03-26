@@ -1,139 +1,127 @@
-/* Container for the Register Form */
-
-
-body {
-margin: 0;
-  background-color: #fafafa; /* Your default bg-color */
-  background-image: 
-    radial-gradient(#ce4d4d 1px, transparent 1px), 
-    radial-gradient(#641cc2 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
-  min-height: 100vh;
-}
+/* --- Register Page Monolith Design --- */
 
 .register-form {
-  max-width: 400px;
-  margin: 80px auto; /* Slightly less margin than login to accommodate extra fields */
-  padding: 60px 40px;
-  background-color: var(--card-bg);
+  max-width: 450px;
+  margin: 80px auto; /* Centered with breathing room */
+  padding: 60px 50px;
+  
+  /* Glassmorphism Effect */
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur); /* blur(20px) */
   border: 1px solid var(--border);
+  border-radius: 32px;
+  
   text-align: center;
-  animation: fadeIn 0.8s ease-out;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  
+  /* Premium Entrance Animation */
+  animation: monolith-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Header Styling */
+/* Header - Ultra Wide Tracking */
 .register-form h2 {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--text-muted);
-  margin-bottom: 50px;
+  letter-spacing: 0.6em; /* Premium luxury spacing */
+  color: var(--text-main);
+  margin-bottom: 60px;
+  font-weight: 300;
+  opacity: 0.9;
 }
 
-/* Input Group Spacing (Username, Email, Password) */
+/* Input Group Spacing */
 .register-form .username, 
 .register-form .email, 
 .register-form .password {
-  margin-bottom: 25px;
+  margin-bottom: 35px;
+  position: relative;
 }
 
-/* Editorial-Style Underline Inputs */
+/* Monolith Editorial Inputs (Underlined Style) */
 .register-form input {
   width: 100%;
+  background: transparent;
   border: none;
   border-bottom: 1px solid var(--border);
-  background: transparent;
-  padding: 12px 0;
-  font-size: 1.1rem;
   border-radius: 0;
+  padding: 15px 0;
+  font-size: 1.1rem;
   color: var(--text-main);
-  transition: border-bottom-color 0.3s ease;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
   box-sizing: border-box;
 }
 
 .register-form input:focus {
   outline: none;
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--accent); /* Solid White */
+  /* Subtle glow on the line only */
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
 
-/* The Primary Register Button */
+/* Placeholder Styling for Dark Mode */
+.register-form input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+/* Primary "Monolith" Button */
 .register-button button {
   width: 100%;
-  background: var(--accent);
-  color: white;
-  padding: 18px;
+  background: var(--accent); /* Pure White */
+  color: #000; /* Contrast Black text */
+  padding: 20px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  border: 1px solid var(--accent);
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
   margin-top: 25px;
   transition: all 0.3s ease;
 }
 
 .register-button button:hover {
-  background: white;
-  color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
+  background: #f0f0f0;
 }
 
-/* Login Link Section (The "Already have an account?" part) */
+/* Reset for the nested "Already have account" link */
 .register-form .login-form {
-  margin-top: 35px;
-  /* We reset the login-form styles here so it doesn't try to 
-     draw a box inside the register box */
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-}
-
-.register-form .login-form a {
-  text-decoration: none;
+  margin-top: 45px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .register-form .login-form div {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
-}
-
-.register-form .login-form div:hover {
-  color: var(--accent);
-}
-
-/* This targets the div specifically when it's a child of the register form */
-.register-form .login-form {
-  background: transparent; /* Remove the white background */
-  border: none;             /* Remove the border */
-  box-shadow: none;         /* Remove the shadow */
-  margin: 30px 0 0 0;      /* Give it some space from the button */
-  padding: 0;               /* Remove the inner padding */
-  max-width: 100%;          /* Ensure it fits the container */
-  animation: none;          /* Prevent double animations */
-}
-
-/* Style the text inside the link */
-.register-form .login-form div {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-/* Hover effect for the "Sign in" text */
 .register-form .login-form div:hover {
-  color: var(--accent);
+  color: var(--text-main);
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 10px;
 }
 
-/* Entrance Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Keyframes for the Smooth Entrance */
+@keyframes monolith-slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }

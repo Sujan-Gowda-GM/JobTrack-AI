@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { jobList, jobUpdate, jobDelete } from "../API/tracker";
 import "../Components/styles/jobboard.css";
+import Navbar from "./Navabar";
 
 const JobBoard = () => {
   const [jobs, setJobs] = useState([]);
@@ -46,42 +47,50 @@ const JobBoard = () => {
   if (loading) return <div className="loading">Loading your board...</div>;
 
   return (
-    <div className="job-board-container">
-      <h1>My Application Tracker</h1>
-      <div className="kanban-wrapper">
-        <KanbanColumn
-          title="Applied"
-          jobs={filterByStatus("Applied")}
-          onMove={(id) => handleMove(id, "Interview")}
-          onDelete={handleDelete}
-          btnLabel="Move to Interview"
-        />
-        <KanbanColumn
-          title="Interview"
-          jobs={filterByStatus("Interview")}
-          onMove={(id) => handleMove(id, "Offer")}
-          onDelete={handleDelete}
-          btnLabel="Got an Offer!"
-        />
-        <KanbanColumn
-          title="Offer"
-          jobs={filterByStatus("Offer")}
-          onMove={(id) => handleMove(id, "Rejected")}
-          onDelete={handleDelete}
-          btnLabel="Archive/Reject"
-        />
+    <>
+
+    <Navbar/>
+      <div className="job-board-container">
+        <h1>My Application Tracker</h1>
+        <div className="kanban-wrapper">
+          <KanbanColumn
+            title="Applied"
+            jobs={filterByStatus("Applied")}
+            onMove={(id) => handleMove(id, "Interview")}
+            onDelete={handleDelete}
+            btnLabel="Move to Interview"
+          />
+          <KanbanColumn
+            title="Interview"
+            jobs={filterByStatus("Interview")}
+            onMove={(id) => handleMove(id, "Offer")}
+            onDelete={handleDelete}
+            btnLabel="Got an Offer!"
+          />
+          <KanbanColumn
+            title="Offer"
+            jobs={filterByStatus("Offer")}
+            onMove={(id) => handleMove(id, "Rejected")}
+            onDelete={handleDelete}
+            btnLabel="Archive/Reject"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 const KanbanColumn = ({ title, jobs, onMove, onDelete, btnLabel }) => (
   <div className="kanban-column">
-    <h3>{title} ({jobs.length})</h3>
+    <h3>
+      {title} ({jobs.length})
+    </h3>
     <div className="job-list">
       {jobs.map((job) => (
         <div key={job.id} className="job-card">
-          <button className="delete-btn" onClick={() => onDelete(job.id)}>×</button>
+          <button className="delete-btn" onClick={() => onDelete(job.id)}>
+            Delete
+          </button>
           <h4>{job.company_name}</h4>
           <p>{job.job_role}</p>
           <div className="ats-badge">Match: {job.ats_score}%</div>

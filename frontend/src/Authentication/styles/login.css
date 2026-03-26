@@ -1,83 +1,96 @@
-body {
-margin: 0;
-  background-color: #fafafa; /* Your default bg-color */
-  background-image: 
-    radial-gradient(#ce4d4d 1px, transparent 1px), 
-    radial-gradient(#641cc2 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
-  min-height: 100vh;
-}
 
 
-/* Container for the Login Form */
 .login-form {
-  max-width: 400px;
-  margin: 100px auto; /* Centered vertically and horizontally */
-  padding: 60px 40px;
-  background-color: var(--card-bg);
+  max-width: 450px;
+  margin: 120px auto; 
+  padding: 60px 50px;
+  
+  background: var(--bg-card); 
+  backdrop-filter: var(--glass-blur); 
   border: 1px solid var(--border);
+  border-radius: 32px;
+  
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Very subtle shadow */
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  
+
+  animation: monolith-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Header Styling */
+
 .login-form h2 {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--text-muted);
-  margin-bottom: 50px;
+  letter-spacing: 0.6em; /* Premium luxury tracking */
+  color: var(--text-main);
+  margin-bottom: 60px;
+  font-weight: 300;
+  opacity: 0.9;
 }
 
-/* Input Group Spacing */
-.username, .password {
-  margin-bottom: 30px;
+/* Input Grouping */
+.login-form .username, 
+.login-form .password {
+  margin-bottom: 35px;
+  position: relative;
 }
 
-/* Editorial-Style Inputs */
+/* Monolith Underlined Inputs */
 .login-form input {
   width: 100%;
+  background: transparent;
   border: none;
   border-bottom: 1px solid var(--border);
-  background: transparent;
-  padding: 12px 0;
-  font-size: 1.1rem;
   border-radius: 0;
+  padding: 15px 0;
+  font-size: 1.1rem;
   color: var(--text-main);
-  transition: border-bottom-color 0.3s ease;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
   box-sizing: border-box;
 }
 
 .login-form input:focus {
   outline: none;
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--accent); /* Solid White */
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
 
-/* The Primary Login Button */
+.login-form input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Primary "Monolith" Login Button */
 .login-button button {
   width: 100%;
-  background: var(--accent);
-  color: white;
-  padding: 18px;
+  background: var(--accent); /* Pure White */
+  color: #000; /* Contrast Black text */
+  padding: 20px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  border: 1px solid var(--accent);
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 25px;
   transition: all 0.3s ease;
 }
 
 .login-button button:hover {
-  background: white;
-  color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
+  background: #f0f0f0;
 }
 
-/* Signup Link Section */
+/* Signup Link Styling (The "New User?" part) */
 .Signup-form {
-  margin-top: 35px;
+  margin-top: 45px;
+  background: transparent !important;
 }
 
 .Signup-form a {
@@ -85,22 +98,28 @@ margin: 0;
 }
 
 .Signup-form div {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .Signup-form div:hover {
-  color: var(--accent);
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
-/* Optional: Subtle animation for the form entrance */
-.login-form {
-  animation: slideUp 0.6s ease-out;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Entrance Animation Keyframes */
+@keyframes monolith-slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }

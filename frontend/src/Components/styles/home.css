@@ -1,293 +1,231 @@
-/* Studio Minimalist Variables */
+/* --- 1. Global Modern Variables --- */
 :root {
-  --bg-color: #fafafa;
-  --text-main: #111111;
-  --text-muted: #666666;
-  --accent: #000000;      /* Pure Black accents */
-  --border: #e5e5e5;
-  --card-bg: #ffffff;
+  --bg-main: #0a0a0a;          /* Deep Obsidian */
+  --bg-card: rgba(255, 255, 255, 0.03); /* Frosted Glass Layer */
+  --text-main: #ffffff;        /* Pure White */
+  --text-muted: #999999;       /* Slate Grey */
+  --accent: #ffffff;           /* High Contrast White */
+  --accent-glow: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(40, 40, 40, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(30, 30, 30, 0.4) 0%, transparent 40%);
   color: var(--text-main);
-  font-family: 'Inter', -apple-system, sans-serif;
-  letter-spacing: -0.02em; /* Tighter professional spacing */
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
   margin: 0;
-  
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Main Container - The "Gallery" Look */
-.input-section, .display-section {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-h3 {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  margin-bottom: 30px;
-}
-
-/* Inputs - Borderless & Clean */
-textarea {
-  width: 100%;
-  height: 200px;
-  background: var(--card-bg);
+/* --- 2. Layout Containers --- */
+.input-section, .display-section, .login-form, .register-form {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border);
-  border-radius: 0px; /* Zero radius for a sharp look */
-  padding: 20px;
-  font-size: 1.1rem;
-  transition: border-color 0.3s ease;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h2, h3 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* --- 3. Premium Inputs & Textarea --- */
+textarea, input, select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 }
 
-textarea:focus {
+textarea:focus, input:focus, select:focus {
   outline: none;
+  background: rgba(255, 255, 255, 0.08);
   border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* Submit Button - The "Statement" Button */
-.submit-button button {
-  background: var(--accent);
-  color: white;
-  width: 100%;
-  padding: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: opacity 0.3s ease;
-}
-
-.submit-button button:hover {
-  opacity: 0.8;
-}
-
-/* ATS Score - Minimalist Bold */
-.ats_score {
-  text-align: center;
-  padding: 60px 0;
-}
-
-.ats_score strong {
-  font-size: 6rem; /* Huge impact score */
-  font-weight: 800;
-  display: block;
-  line-height: 1;
-}
-
-.ats_score::after {
-  content: "MATCH QUALITY";
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  color: var(--text-muted);
-}
-
-/* Keyword Tags - The "Quiet" Look */
-.keyword-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 0;
-}
-
-.keyword-tag {
-  border: 1px solid var(--border);
-  padding: 8px 16px;
-  font-size: 0.8rem;
-  color: var(--text-main);
-}
-
-/* Feedback Points - Clean Typography */
-.feedback-points li {
-  list-style: none;
-  border-left: 1px solid var(--accent);
-  padding-left: 20px;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  color: var(--text-main);
-}
-
-/* Step 2 Form Details */
-.job-details-form {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 80px;
-}
-
-.job-details-form input {
-  border: none;
-  border-bottom: 1px solid var(--border);
-  padding: 15px 0;
-  font-size: 1.2rem;
-  border-radius: 0;
-}
-
-.job-details-form input:focus {
-  outline: none;
-  border-bottom-color: var(--accent);
-}
-
-/* Loading - Silent & Subtle */
-.loading-state {
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-/* --- Step 2 Form Details (Grid Layout) --- */
-.job-details-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns for a cleaner look */
-  gap: 30px;
-  margin-top: 80px;
-  padding-bottom: 60px;
-}
-
-.job-details-form h3 {
-  grid-column: span 2;
-  margin-bottom: 10px;
-}
-
-/* Base style for both Input and Select */
-.job-details-form input, 
-.job-details-form select {
-  border: none;
-  border-bottom: 1px solid var(--border);
-  background: transparent;
-  padding: 15px 0;
-  font-size: 1.1rem;
-  border-radius: 0;
-  color: var(--text-main);
-  width: 100%;
-  transition: border-bottom-color 0.3s ease;
-}
-
-/* Custom Select Styling */
-.job-details-form select {
-  appearance: none; /* Removes default arrow */
-  cursor: pointer;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.job-details-form input:focus, 
-.job-details-form select:focus {
-  outline: none;
-  border-bottom-color: var(--accent);
-}
-
-/* --- Universal Button Design --- */
-.choice button,
-.job-details-form button {
-  background: var(--accent);
-  color: white;
-  padding: 18px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  border: 1px solid var(--accent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-}
-
-/* Special spanning for the final save button */
-.job-details-form button {
-  grid-column: span 2;
-  margin-top: 20px;
-}
-
-/* Hover effects */
-.choice button:hover,
-.job-details-form button:hover {
-  background: white;
-  color: var(--accent);
-}
-
-/* Secondary choice button (No, Try Another) */
-.choice button:last-of-type {
-  background: white;
-  color: var(--text-muted);
-  border-color: var(--border);
-}
-
-.choice button:last-of-type:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* --- Horizontal Rule & Choice Section --- */
-hr {
-  border: 0;
-  border-top: 1px solid var(--border);
-  margin: 60px 0;
-}
-
-.choice {
-  text-align: center;
-  margin-top: 50px;
-  padding: 40px;
-  border: 1px solid var(--border);
-}
-
-.choice p {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  margin-bottom: 25px;
-}
-
-/* Hide the default browser "Choose File" button */
-.file-upload-block input[type="file"] {
-  display: none;
-}
-
-/* Style the Label to look like a Premium Button */
+/* --- 4. The "Choose File" Block --- */
 .custom-file-upload {
-  display: block;
-  width: 100%;
-  padding: 40px 20px;
-  border: 1px dashed var(--border); /* Dashed border for "Upload" feel */
-  background: var(--card-bg);
-  text-align: center;
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--text-muted);
-  cursor: pointer;
+  font-size: 0.75rem;
   transition: all 0.3s ease;
-  box-sizing: border-box;
+  margin-bottom: 30px;
 }
 
 .custom-file-upload:hover {
+  background: var(--bg-card);
   border-color: var(--accent);
   color: var(--accent);
-  background-color: #fdfdfd;
 }
 
-/* Style for when a file is actually selected */
-.custom-file-upload:active, .custom-file-upload:focus {
-  border-style: solid;
+/* --- 5. Action Buttons --- */
+button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 32px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.empty-state{
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  font-family: 'Inter', -apple-system, sans-serif;
-  letter-spacing: -0.02em; /* Tighter professional spacing */
-  margin: 0;
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* --- 6. Results & ATS Match (The Showpiece) --- */
+.ats_score {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.ats_score strong {
+  font-size: 8rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, #fff 0%, #444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.ats_score::after {
+  content: "PRECISION MATCH";
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  color: var(--text-muted);
+}
+
+.keyword-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  list-style: none;
+}
+
+.feedback-points li {
+  list-style: none;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.95rem;
+}
+
+/* --- 7. Step 2 Form (Grid) --- */
+.job-details-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.job-details-form h3, .job-details-form button {
+  grid-column: span 2;
+}
+
+/* --- 8. Helper Classes --- */
+.loading-state {
+  text-align: center;
+  animation: pulse 2s infinite;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 60px 0;
+}
+
+
+.results-box {
+  animation: glow-entrance 1s ease-out forwards;
+  position: relative;
+}
+
+@keyframes glow-entrance {
+  0% { 
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- Fix for Select Dropdown Options --- */
+
+.job-details-form select option {
+  background-color: #1a1a1a; /* Deep grey/black for the dropdown background */
+  color: #ffffff;            /* Pure white for the option text */
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Specific fix for Chrome/Safari/Firefox to prevent white-on-white */
+.job-details-form select:focus option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Styling for the hover/selection state inside the dropdown */
+.job-details-form select option:hover,
+.job-details-form select option:focus,
+.job-details-form select option:checked {
+  background-color: var(--accent) !important; /* Pure White background */
+  color: #000000 !important;                  /* Black text on hover */
 }
